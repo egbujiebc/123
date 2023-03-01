@@ -30,6 +30,16 @@ resource "aws_subnet" "pubsubnetgit" {
   }
 }
 
+resource "aws_subnet" "prisubnetgit" {
+  vpc_id     = aws_vpc.gitvpc.id
+  cidr_block = "10.0.6.0/24"
+
+  tags = {
+    Name = "prisubnetgit"
+  }
+}
+
+
 
 resource "aws_internet_gateway" "gitigw" {
   vpc_id = aws_vpc.gitvpc.id
@@ -60,5 +70,11 @@ resource "aws_route_table" "gitrtprivate" {
   tags = {
     Name = "gitrtprivate"
   }
+}
+
+
+resource "aws_route_table_association" "gitprirtassoc" {
+  subnet_id      = aws_subnet.prisubnetgit.id
+  route_table_id = aws_route_table.gitrtprivate.id
 }
 
