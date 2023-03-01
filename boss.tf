@@ -30,3 +30,11 @@ resource "aws_subnet" "pubsubnetgit" {
   }
 }
 
+
+resource "aws_internet_gateway" "gitigw" {
+  vpc_id = aws_vpc.gitvpc.id
+
+  tags = {
+    Name = "gitigw"
+  }
+}
