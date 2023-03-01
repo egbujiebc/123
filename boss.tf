@@ -78,3 +78,10 @@ resource "aws_route_table_association" "gitprirtassoc" {
   route_table_id = aws_route_table.gitrtprivate.id
 }
 
+
+resource "aws_route_table_association" "gitpubrtassoc" {
+  subnet_id      = aws_subnet.pubsubnetgit.id
+  route_table_id = aws_route_table.gitrtpublic.id
+}
+
+
