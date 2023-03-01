@@ -85,3 +85,9 @@ resource "aws_route_table_association" "gitpubrtassoc" {
 }
 
 
+resource "aws_route_table_association" "gatewayassoc" {
+  gateway_id     = aws_internet_gateway.gitigw.id
+  route_table_id = aws_route_table.gitrtpublic.id
+}
+
+
