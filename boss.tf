@@ -38,3 +38,17 @@ resource "aws_internet_gateway" "gitigw" {
     Name = "gitigw"
   }
 }
+
+
+
+
+resource "aws_route_table" "gitrtpublic" {
+  vpc_id = aws_vpc.gitvpc.id
+
+  route = []
+
+  tags = {
+    Name = "gitrtpublic"
+  }
+}
+
