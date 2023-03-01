@@ -52,3 +52,13 @@ resource "aws_route_table" "gitrtpublic" {
   }
 }
 
+resource "aws_route_table" "gitrtprivate" {
+  vpc_id = aws_vpc.gitvpc.id
+
+  route = []
+
+  tags = {
+    Name = "gitrtprivate"
+  }
+}
+
